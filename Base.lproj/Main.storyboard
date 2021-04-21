@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ay3-c1-tks">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main-->
+        <scene sceneID="Fdn-Og-3Hv">
+            <objects>
+                <viewController id="QVG-QJ-zsP" customClass="NewsListViewController" customModule="OleksiyNewsAPI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hie-go-96r">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="zQC-dZ-NAy">
+                                <rect key="frame" x="0.0" y="146" width="414" height="716"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="QVG-QJ-zsP" id="m5x-rF-CVH"/>
+                                    <outlet property="delegate" destination="QVG-QJ-zsP" id="pOS-dg-epO"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vx4-oa-fUz">
+                                <rect key="frame" x="59" y="105" width="59" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="searchButton:" destination="QVG-QJ-zsP" eventType="touchUpInside" id="cBq-5N-Hyw"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bmZ-1J-Ow7">
+                                <rect key="frame" x="174" y="104" width="97" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="QVG-QJ-zsP" id="s6K-Ub-wbI"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1Qf-fE-ezx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zQC-dZ-NAy" firstAttribute="top" secondItem="bmZ-1J-Ow7" secondAttribute="bottom" constant="8" symbolic="YES" id="0eG-FD-VSm"/>
+                            <constraint firstItem="zQC-dZ-NAy" firstAttribute="top" secondItem="Vx4-oa-fUz" secondAttribute="bottom" constant="6" id="2Mg-LS-7nx"/>
+                            <constraint firstItem="zQC-dZ-NAy" firstAttribute="leading" secondItem="1Qf-fE-ezx" secondAttribute="leading" id="EJB-0K-jEP"/>
+                            <constraint firstItem="Vx4-oa-fUz" firstAttribute="leading" secondItem="1Qf-fE-ezx" secondAttribute="leading" constant="59" id="ReW-bU-xLB"/>
+                            <constraint firstItem="bmZ-1J-Ow7" firstAttribute="top" secondItem="1Qf-fE-ezx" secondAttribute="top" constant="16" id="WMM-PZ-9qS"/>
+                            <constraint firstItem="Vx4-oa-fUz" firstAttribute="top" secondItem="1Qf-fE-ezx" secondAttribute="top" constant="17" id="f3G-SI-Sp5"/>
+                            <constraint firstItem="1Qf-fE-ezx" firstAttribute="bottom" secondItem="zQC-dZ-NAy" secondAttribute="bottom" id="g9O-yl-JV0"/>
+                            <constraint firstItem="1Qf-fE-ezx" firstAttribute="trailing" secondItem="bmZ-1J-Ow7" secondAttribute="trailing" constant="143" id="kkV-7Z-9Wh"/>
+                            <constraint firstItem="bmZ-1J-Ow7" firstAttribute="leading" secondItem="Vx4-oa-fUz" secondAttribute="trailing" constant="56" id="rSK-rt-zXQ"/>
+                            <constraint firstItem="1Qf-fE-ezx" firstAttribute="trailing" secondItem="zQC-dZ-NAy" secondAttribute="trailing" id="tFc-bM-blt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Main" id="j1b-5g-han">
+                        <barButtonItem key="rightBarButtonItem" title="Filters" id="qgx-AJ-342">
+                            <connections>
+                                <segue destination="Xpc-9q-cyc" kind="show" identifier="filterSegue" id="Ned-bD-aSu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ifilterButton" destination="qgx-AJ-342" id="rGV-Ma-isR"/>
+                        <outlet property="searchField" destination="bmZ-1J-Ow7" id="SZE-nB-KCE"/>
+                        <outlet property="tableView" destination="zQC-dZ-NAy" id="ykX-hW-AH7"/>
+                        <segue destination="Cf9-cz-XAx" kind="show" identifier="viewWeb" id="LLo-U8-por"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gAJ-N6-9eG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="463.768115942029" y="-427.23214285714283"/>
+        </scene>
+        <!--Filters Table View Controller-->
+        <scene sceneID="oK0-Nv-mYU">
+            <objects>
+                <viewController id="Xpc-9q-cyc" customClass="FiltersTableViewController" customModule="OleksiyNewsAPI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6xq-oe-Qhr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTR-IQ-vcb">
+                                <rect key="frame" x="47" y="340" width="320" height="216"/>
+                            </pickerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="d3C-2E-gDc">
+                                <rect key="frame" x="109" y="243" width="197" height="31"/>
+                                <segments>
+                                    <segment title="Category"/>
+                                    <segment title="Country"/>
+                                    <segment title="Source"/>
+                                </segments>
+                                <connections>
+                                    <action selector="valueChanged:" destination="Xpc-9q-cyc" eventType="valueChanged" id="K5G-Vh-f6z"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KDp-oq-y2r"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tTR-IQ-vcb" firstAttribute="top" secondItem="d3C-2E-gDc" secondAttribute="bottom" constant="67" id="HP0-1K-lJq"/>
+                            <constraint firstItem="KDp-oq-y2r" firstAttribute="bottom" secondItem="tTR-IQ-vcb" secondAttribute="bottom" constant="306" id="IuS-T3-1wh"/>
+                            <constraint firstItem="tTR-IQ-vcb" firstAttribute="leading" secondItem="KDp-oq-y2r" secondAttribute="leading" constant="47" id="Pza-8L-1fw"/>
+                            <constraint firstItem="KDp-oq-y2r" firstAttribute="trailing" secondItem="tTR-IQ-vcb" secondAttribute="trailing" constant="47" id="id7-dC-5UH"/>
+                            <constraint firstItem="KDp-oq-y2r" firstAttribute="trailing" secondItem="d3C-2E-gDc" secondAttribute="trailing" constant="108" id="nHx-Y9-CSR"/>
+                            <constraint firstItem="d3C-2E-gDc" firstAttribute="leading" secondItem="KDp-oq-y2r" secondAttribute="leading" constant="109" id="qjV-3b-uSf"/>
+                            <constraint firstItem="d3C-2E-gDc" firstAttribute="top" secondItem="KDp-oq-y2r" secondAttribute="top" constant="155" id="zSn-1y-Bag"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="y68-Ab-hin">
+                        <barButtonItem key="rightBarButtonItem" title="Apply" id="Wis-ne-atB">
+                            <connections>
+                                <action selector="applyButton:" destination="Xpc-9q-cyc" id="p3l-PP-xSY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pickerView" destination="tTR-IQ-vcb" id="f6P-2d-0LI"/>
+                        <outlet property="segmentedController" destination="d3C-2E-gDc" id="Lir-xF-4ge"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vf5-ec-osd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1485.5072463768117" y="-554.46428571428567"/>
+        </scene>
+        <!--Article Review View Controller-->
+        <scene sceneID="cL0-rD-0Qg">
+            <objects>
+                <viewController id="Cf9-cz-XAx" customClass="ArticleReviewViewController" customModule="OleksiyNewsAPI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SZ7-lL-f2V">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9hJ-sI-3yP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Sie-gw-eev"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5aJ-TR-FhR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="464" y="352"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UlA-ku-NQE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ay3-c1-tks" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b8d-gL-1vc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QVG-QJ-zsP" kind="relationship" relationship="rootViewController" id="gOX-KU-7XQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D6H-sf-Ish" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-716" y="-556"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
